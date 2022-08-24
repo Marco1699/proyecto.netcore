@@ -1,0 +1,46 @@
+﻿@model ClienteAPI.Models.ClienteViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<h1 style="text-align:center">Agregar Cliente</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  class="control-label">Cliente</label>
+                <input asp-for="Cliente1" class="form-control" />
+                <span asp-validation-for="Cliente1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input style="background-color:#CEE491" type="submit" value="Create" class="btn" />
+                <button style="background-color:#E18686 " class="btn"  type ="button" onclick="location.href='@Url.Action("Index","Cliente")'">Cancelar</button>
+              
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

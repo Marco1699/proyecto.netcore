@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ClienteAPI.Models.ClienteViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<h1 style="text-align:center">Mantenimiento de Clientes</h1>
+
+<p>
+    <a asp-action="Create">Agregar Cliente</a>
+</p>
+<table class="table table-active table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+               @Html.ActionLink("Editar", "Edit", new { id=item.IdCliente }) |
+                @Html.ActionLink("Ver", "Details", new { id=item.IdCliente}) |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.IdCliente })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
